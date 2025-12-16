@@ -1,0 +1,321 @@
+/* ========== GLOBAL (Google Keep Style) ========== */
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  background-color: #f1f3f4;
+  color: #202124;
+}
+
+h1, h2, h3 {
+  margin: 0;
+}
+
+/* Buttons */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+/* ================== HEADER ================== */
+header {
+  background-color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 1px 3px rgba(60, 64, 67, 0.1);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  gap: 15px;
+}
+
+/* Hamburger */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.bar {
+  width: 20px;
+  height: 2px;
+  background-color: #202124;
+  transition: 0.3s;
+}
+
+/* Title */
+.app-title {
+  font-size: 1.5rem;
+  color: #5f6368;
+}
+
+/* Search Bar */
+.search-container {
+  position: relative;
+  flex: 1;
+  max-width: 600px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 38px;
+  border-radius: 8px;
+  border: none;
+  background-color: #f1f3f4;
+  font-size: 1rem;
+}
+
+.search-input:focus {
+  outline: none;
+  background-color: #fff;
+  box-shadow: 0 1px 6px rgba(60, 64, 67, 0.3);
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #5f6368;
+}
+
+.clear-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  font-size: 1.2rem;
+  color: #5f6368;
+}
+
+/* Divider Line */
+.divider {
+  border: none;
+  border-top: 1px solid #dadce0;
+}
+
+
+/* ================== SIDEBAR ================== */
+.sidebar {
+  position: fixed;
+  top: 65px; /* right under header */
+  left: -250px;
+  width: 230px;
+  height: 100vh;
+  background-color: #fff;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+  transition: left 0.25s ease;
+  padding-top: 10px;
+  z-index: 900;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.sidebar li {
+  padding: 12px 22px;
+  font-size: 1rem;
+  color: #202124;
+  cursor: pointer;
+  transition: background-color 0.2s ease, padding-left 0.2s ease;
+}
+
+.sidebar li:hover {
+  background-color: #f1f3f4;
+  border-radius: 0 25px 25px 0;
+  padding-left: 28px;
+}
+
+
+/* ================== PAGE CONTAINER ================== */
+.home-container {
+  padding: 25px;
+  margin-left: 0;
+  transition: margin-left 0.25s ease;
+}
+
+.sidebar.open ~ .home-container {
+  margin-left: 240px;
+}
+
+
+/* ================== NOTE INPUT ================== */
+.note-input-area {
+  max-width: 600px;
+  margin: 0 auto 25px auto;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(60, 64, 67, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.note-input-area input,
+.note-input-area textarea {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  resize: none;
+  background: transparent;
+}
+
+.note-input-area textarea {
+  height: 70px;
+}
+
+.note-input-area button {
+  align-self: flex-end;
+  background-color: #fbbc04;
+  color: #202124;
+}
+
+.note-input-area button:hover {
+  background-color: #f9ab00;
+}
+
+
+/* ================== NOTES GRID ================== */
+.notes-display h2 {
+  text-align: center;
+  color: #5f6368;
+  margin-bottom: 15px;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 18px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Single Note Card */
+.note-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 14px;
+  box-shadow: 0 1px 6px rgba(60, 64, 67, 0.2);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  position: relative;
+}
+
+.note-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(60, 64, 67, 0.3);
+}
+
+.note-card h3 {
+  margin-bottom: 6px;
+  font-size: 1.1rem;
+}
+
+.note-card p {
+  font-size: 0.95rem;
+  color: #5f6368;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  background: transparent;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+
+/* ================== LOGIN PAGE ================== */
+.login-container {
+  width: 350px;
+  margin: 70px auto;
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(60, 64, 67, 0.2);
+  text-align: center;
+}
+
+.login-container h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #a5a5a5;
+}
+
+button[type="submit"] {
+  width: 100%;
+  background-color: #fbbc04;
+  color: #202124;
+  margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+  background-color: #f9ab00;
+}
+
+.toggle-text {
+  margin-top: 12px;
+}
+
+.toggle-link {
+  color: #1a73e8;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.message {
+  margin-top: 15px;
+  background: #fef7cd;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #f7e680;
+  font-weight: 500;
+}
+
+
+/* ================== FOOTER ================== */
+footer {
+  background-color: #fff;
+  text-align: center;
+  padding: 12px;
+  color: #5f6368;
+  border-top: 1px solid #dadce0;
+  margin-top: 40px;
+}
